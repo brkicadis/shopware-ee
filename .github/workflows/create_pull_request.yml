@@ -1,0 +1,19 @@
+name: Create Pull Request
+
+on: create
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: startsWith(github.head_ref, 'RC-')
+    name: Create Pull Request
+    steps:
+      - name: create pull request for ${{ matrix.shop-extension }}
+        uses: wirecard/create-pull-request@v2
+        with:
+          token: ${{ secrets.TOKEN }}
+          commit-message: pull request created
+          title: 'release candidate pull request created'
+          body: >
+            This is an auto-generated PR for release candidate.
+          branch: ${{ github.head_ref }}
