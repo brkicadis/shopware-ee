@@ -8,7 +8,7 @@ jobs:
     if: startsWith(github.head_ref, 'RC-')
     name: Create Pull Request
     steps:
-      - name: create pull request for ${{ matrix.shop-extension }}
+      - name: create pull request for ${{ github.event.repository.name }}
         uses: wirecard/create-pull-request@v2
         with:
           token: ${{ secrets.TOKEN }}
