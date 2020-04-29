@@ -3,7 +3,7 @@ name: Create pull request
 on:
   create:
     branches:
-      - 'RC-4.4.4-patch'
+      - refs/heads/RC-4.4.4-patch
 
 jobs:
   create-pull-request:
