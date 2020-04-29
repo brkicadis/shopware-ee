@@ -8,7 +8,11 @@ jobs:
     if: startsWith(github.head_ref, 'RC-')
     name: Create Pull Request
     steps:
-      - name: create pull request for ${{ github.event.repository.name }}
+      - name: ${{ github.event.repository.name }} repository checkout
+        uses: wirecard/checkout@v2.0.0
+        with:
+          ref: ${{ github.head_ref }}
+      - name: create pull request for ${{ github.event.repository.name }} on branch ${{ github.head_ref }}
         uses: wirecard/create-pull-request@v2
         with:
           token: ${{ secrets.TOKEN }}
