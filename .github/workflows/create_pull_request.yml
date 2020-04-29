@@ -1,6 +1,6 @@
 name: Create Pull Request
 
-on: create
+on: [create]
 
 jobs:
   build:
@@ -12,12 +12,12 @@ jobs:
         uses: wirecard/checkout@v2.0.0
         with:
           ref: ${{ github.head_ref }}
-      - name: create pull request for ${{ github.event.repository.name }} on branch ${{ github.head_ref }}
-        uses: wirecard/create-pull-request@v2
-        with:
-          token: ${{ secrets.TOKEN }}
-          commit-message: pull request created
-          title: 'release candidate pull request created'
-          body: >
-            This is an auto-generated PR for release candidate.
-          branch: ${{ github.head_ref }}
+#      - name: create pull request for ${{ github.event.repository.name }} on branch ${{ github.head_ref }}
+#        uses: wirecard/create-pull-request@v2
+#        with:
+#          token: ${{ secrets.TOKEN }}
+#          commit-message: pull request created
+#          title: 'release candidate pull request created'
+#          body: >
+#            This is an auto-generated PR for release candidate.
+#          branch: ${{ github.head_ref }}
