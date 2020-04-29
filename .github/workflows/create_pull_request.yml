@@ -2,8 +2,8 @@ name: Create pull request
 
 on:
   create:
-    tags:
-      - '*'
+    branches:
+      - 'refs'
 
 jobs:
   create-pull-request:
