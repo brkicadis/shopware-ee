@@ -3,7 +3,7 @@ name: Create pull request
 on:
   create:
     tags:
-      - *
+      - '*'
 
 jobs:
   create-pull-request:
