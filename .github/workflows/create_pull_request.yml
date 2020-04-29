@@ -1,7 +1,9 @@
 name: Create pull request
 
 on:
-  create
+  create:
+    tags:
+      - *
 
 jobs:
   create-pull-request:
