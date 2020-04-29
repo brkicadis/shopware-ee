@@ -1,9 +1,8 @@
 name: Create pull request
 
 on:
-  create:
-    branches:
-      - refs/heads/RC-4.4.4-patch
+  pull_request:
+    types: opened
 
 jobs:
   create-pull-request:
