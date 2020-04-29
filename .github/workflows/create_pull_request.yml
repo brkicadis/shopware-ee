@@ -1,23 +1,24 @@
-name: Create Pull Request
+name: Create pull request
 
-on: [create]
+on:
+  create
 
 jobs:
-  build:
+  create-pull-request:
     runs-on: ubuntu-latest
     if: startsWith(github.head_ref, 'RC-')
-    name: Create Pull Request
+    name: Create pull request
     steps:
-      - name: ${{ github.event.repository.name }} repository checkout
+      - name: Checkout ${{ github.event.repository.name }}
         uses: wirecard/checkout@v2.0.0
         with:
           ref: ${{ github.head_ref }}
-#      - name: create pull request for ${{ github.event.repository.name }} on branch ${{ github.head_ref }}
-#        uses: wirecard/create-pull-request@v2
-#        with:
-#          token: ${{ secrets.TOKEN }}
-#          commit-message: pull request created
-#          title: 'release candidate pull request created'
-#          body: >
-#            This is an auto-generated PR for release candidate.
-#          branch: ${{ github.head_ref }}
+      - name: create pull request for ${{ github.event.repository.name }} on branch ${{ github.head_ref }}
+        uses: wirecard/create-pull-request@v2
+        with:
+          token: ${{ secrets.TOKEN }}
+          commit-message: pull request created
+          title: 'release candidate pull request created'
+          body: >
+            This is an auto-generated PR for release candidate.
+          branch: ${{ github.head_ref }}
