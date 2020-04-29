@@ -55,7 +55,7 @@ jobs:
 
   - &acceptance-test
     stage: acceptance-test
-    # run this stage on pull request if head branch name contains one of these words (patch, major, minor)
+    ## run this stage on pull request if head branch name contains one of these words (patch, major, minor)
     # or when build triggered ad-hoc with special commit message
     # will use branch which originated pull request
     # or branch which was defined in ad-hoc trigger in Travis UI
